@@ -1,0 +1,926 @@
+<!DOCTYPE html><html><head>
+      <title>report</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/edward/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.13/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1>堆优化的最短路算法</h1>
+<p><strong>作者:</strong> <em>金俊一 张延泽 童盟</em><br>
+<strong>日期:</strong> <em>2024-03-29</em></p>
+<h1 id="第一章-引言">第一章: 引言 </h1>
+<h2 id="戴克斯特拉算法">戴克斯特拉算法 </h2>
+<h3 id="伪代码">伪代码 </h3>
+<pre data-role="codeBlock" data-info="pseudocode" class="language-pseudocode pseudocode"><code>FUNCTION Dijkstra(G, w, s)
+  INITIALIZE-SINGLE-SOURCE(G, s)
+  S &lt;- NULL
+  Q &lt;- s
+  while (Q != NULL)
+    do u &lt;- EXTRACT - MIN(Q)
+    S &lt;- UNION(S, u)
+    for each vertex v IN Adj[u]
+      do RELAX(u, v, w)
+</code></pre><h3 id="复杂度分析">复杂度分析 </h3>
+<p>下面是一些戴克斯特拉算法经典实现的复杂度比较：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">算法</th>
+<th style="text-align:center">最坏时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">使用邻接表的戴克斯特拉算法</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi mathvariant="normal">∣</mi><mi>V</mi><msup><mi mathvariant="normal">∣</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(|V|^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord"><span class="mord">∣</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">使用二叉堆优化的戴克斯特拉算法</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi mathvariant="normal">∣</mi><mi>E</mi><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><mi>V</mi><mi mathvariant="normal">∣</mi><mo stretchy="false">)</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi mathvariant="normal">∣</mi><mi>V</mi><mi mathvariant="normal">∣</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O((|E|+|V|)log|V|)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">((</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">∣</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">∣</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">使用斐波那契堆优化的戴克斯特拉算法</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi mathvariant="normal">∣</mi><mi>E</mi><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><mi>V</mi><mi mathvariant="normal">∣</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi mathvariant="normal">∣</mi><mi>V</mi><mi mathvariant="normal">∣</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(|E|+|V|log|V|)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">∣</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="第二章-数据结构与算法分析">第二章: 数据结构与算法分析 </h1>
+<h2 id="链接表">链接表 </h2>
+<h3 id="伪代码-1">伪代码 </h3>
+<pre data-role="codeBlock" data-info="pseudocode" class="language-pseudocode pseudocode"><code>STRUCTURE ListNode:
+  index: size_t
+  value: unsigned long long
+  prev: pointer to ListNode
+  next: pointer to ListNode
+
+STRUCTURE LinkedList:
+  head: pointer to ListNode
+
+  FUNCTION CREATE-LINKED-LIST():
+    list &lt;- new LinkedList with head = NULL
+    RETURN list
+
+  FUNCTION DESTROY-LINKED-LIST(list):
+    current &lt;- list.head
+    WHILE current != NULL
+      next &lt;- current.next
+      DELETE current
+      current &lt;- next
+
+  FUNCTION POP-MIN(list):
+    minNode &lt;- NULL
+    minIndex &lt;- -1
+    minValue &lt;- ULONG_MAX
+    current &lt;- list.head
+    WHILE current != NULL
+      IF current.value &lt; minValue THEN
+        minNode &lt;- current
+        minIndex &lt;- current.index
+        minValue &lt;- current.value
+      current &lt;- current.next
+    IF minNode != NULL THEN
+      IF minNode.prev != NULL THEN minNode.prev.next &lt;- minNode.next
+      IF minNode.next != NULL THEN minNode.next.prev &lt;- minNode.prev
+      IF minNode == list.head THEN list.head &lt;- minNode.next
+      DELETE minNode
+    RETURN (minIndex, minValue)
+
+  FUNCTION PUSH(list, index, value):
+    newNode &lt;- CREATE-NODE(index, value)
+    IF list.head != NULL THEN list.head.prev &lt;- newNode
+    newNode.next &lt;- list.head
+    list.head &lt;- newNode
+
+  FUNCTION DECREASE(list, index, value):
+    current &lt;- list.head
+    WHILE current != NULL
+      IF current.index == index THEN
+        current.value &lt;- value
+        BREAK
+      current &lt;- current.next
+</code></pre><h3 id="复杂度分析-1">复杂度分析 </h3>
+<p>在上述的 Dijkstra 算法中，主要的时间复杂度来自于优先队列的实现。在这里，我们使用了链表作为优先队列的数据结构。假设有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 个顶点和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 条边。</p>
+<ol>
+<li><strong>初始化</strong>：对每个顶点的初始化操作的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(V)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>。</li>
+<li><strong>主循环</strong>：主循环执行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 次，每次从优先队列中提取最小值，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(V)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>。</li>
+<li><strong>Relax 操作</strong>：对每条边进行 Relax 操作，最坏情况下会被执行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 次，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(E)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span>。</li>
+<li><strong>优先队列操作</strong>：由于使用链表实现优先队列，提取最小值的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(V)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>，而 decrease 操作的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(V)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>。</li>
+</ol>
+<p>综上所述，Dijkstra 算法的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>V</mi><mo>+</mo><mi>E</mi><mo stretchy="false">)</mo><mo>⋅</mo><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O((V + E) \cdot V)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">((</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 可能的最大取值为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">V^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>，因此可以简化为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>V</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(V^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+<h2 id="二叉堆">二叉堆 </h2>
+<h3 id="伪代码-2">伪代码 </h3>
+<pre data-role="codeBlock" data-info="pseudocode" class="language-pseudocode pseudocode"><code>STRUCTURE BinaryHeap:
+  values: list of unsigned long long
+  indexes: map from size_t to size_t
+  places: map from size_t to size_t
+
+  FUNCTION PARENT(place):
+    RETURN (place-1) / 2
+
+  FUNCTION LEFT(place):
+    RETURN 2 * place + 1
+
+  FUNCTION RIGHT(place):
+    RETURN 2 * place + 2
+
+  FUNCTION SWAP(place1, place2):
+    tempValue &lt;- values[place1]
+    values[place1] &lt;- values[place2]
+    values[place2] &lt;- tempValue
+
+    index1 &lt;- indexes[place1]
+    index2 &lt;- indexes[place2]
+    indexes[place1] &lt;- index2
+    indexes[place2] &lt;- index1
+    places[index1] &lt;- place2
+    places[index2] &lt;- place1
+
+  FUNCTION SWAP-DOWN(place):
+    l &lt;- LEFT(place)
+    r &lt;- RIGHT(place)
+    smallest &lt;- place
+    IF l &lt; values.length AND values[l] &lt; values[smallest] THEN
+      smallest &lt;- l
+    IF r &lt; values.length AND values[r] &lt; values[smallest] THEN
+      smallest &lt;- r
+    WHILE smallest != place
+      SWAP(place, smallest)
+      place &lt;- smallest
+      l &lt;- LEFT(place)
+      r &lt;- RIGHT(place)
+      IF l &lt; values.length AND values[l] &lt; values[smallest] THEN
+        smallest &lt;- l
+      IF r &lt; values.length AND values[r] &lt; values[smallest] THEN
+        smallest &lt;- r
+
+  FUNCTION SWAP-UP(place):
+    WHILE place != 0 AND values[PARENT(place)] &gt; values[place]
+      SWAP(place, PARENT(place))
+      place &lt;- PARENT(place)
+
+  FUNCTION CREATE-BINARY-HEAP():
+    heap &lt;- new BinaryHeap with values = {}, indexes = {}, places = {}
+    RETURN heap
+
+  FUNCTION POP-MIN(heap):
+    IF heap.values.length == 0 THEN
+      RETURN (-1, ULONG_MAX)
+    value &lt;- heap.values[0]
+    index &lt;- heap.indexes[0]
+    heap.values[0] &lt;- heap.values[heap.values.length - 1]
+    heap.indexes[0] &lt;- heap.indexes[heap.values.length - 1]
+    heap.places[heap.indexes[0]] &lt;- 0
+    heap.values.pop_back()
+    heap.indexes.erase(heap.values.length)
+    heap.places.erase(index)
+    SWAP-DOWN(0)
+    RETURN (index, value)
+
+  FUNCTION PUSH(heap, index, value):
+    place &lt;- heap.values.length
+    heap.places[index] &lt;- place
+    heap.indexes[place] &lt;- index
+    heap.values.push_back(value)
+    SWAP-UP(place)
+
+  FUNCTION DECREASE(heap, index, value):
+    place &lt;- heap.places[index]
+    heap.values[place] &lt;- value
+    SWAP-UP(place)
+</code></pre><h3 id="复杂度分析-2">复杂度分析 </h3>
+<p>在上述的 Dijkstra 算法中，主要的时间复杂度仍然取决于优先队列的实现，即 <code>binaryHeap</code> 类。</p>
+<ol>
+<li><strong>初始化</strong>：对于 <code>binaryHeap</code> 类的初始化操作的时间复杂度为 O(1)，因为只是创建了一个空的容器。</li>
+<li><strong>主循环</strong>：主循环执行 V 次，每次从优先队列中提取最小值，时间复杂度为 O(log V)，因为这个操作涉及到一次 swap-down 操作。</li>
+<li><strong>Relax 操作</strong>：对每条边进行 Relax 操作，最坏情况下会被执行 E 次，时间复杂度为 O(E log V)，因为每次 Relax 都会涉及到 decrease 操作。</li>
+<li><strong>优先队列操作</strong>：从优先队列中删除最小值的时间复杂度为 O(log V)，插入新元素的时间复杂度为 O(log V)，因此总体时间复杂度为 O(log V)。</li>
+</ol>
+<p>综上所述，Dijkstra 算法的时间复杂度为 O((V + E) log V)，其中 V 是顶点的数量，E 是边的数量。</p>
+<h2 id="斐波那契堆">斐波那契堆 </h2>
+<h3 id="伪代码-3">伪代码 </h3>
+<pre data-role="codeBlock" data-info="pseudocode" class="language-pseudocode pseudocode"><code>STRUCTURE FibonacciNode:
+  key: pair of size_t and unsigned long long
+  degree: size_t
+  left: pointer to FibonacciNode
+  right: pointer to FibonacciNode
+  parent: pointer to FibonacciNode
+  child: pointer to FibonacciNode
+  marked: boolean
+
+STRUCTURE FibonacciHead:
+  keyNum: size_t
+  maxDegree: size_t
+  min: pointer to FibonacciNode
+
+STRUCTURE FibonacciHeap:
+  head: pointer to FibonacciHead
+  nodes: map from size_t to pointer to FibonacciNode
+
+  FUNCTION REMOVE-NODE(node):
+    node.left.right &lt;- node.right
+    node.right.left &lt;- node.left
+
+  FUNCTION ADD-NODE(node, root):
+    node.left &lt;- root
+    node.right &lt;- root.right
+    root.right.left &lt;- node
+    root.right &lt;- node
+
+  FUNCTION ERASE-CHILDREN(root):
+    FOR i &lt;- 0 TO root.degree
+      current &lt;- root.child
+      root.child &lt;- current.right
+      current.parent &lt;- NULL
+      REMOVE-NODE(current)
+      IF head.min == NULL THEN
+        head.min &lt;- current
+        current.left &lt;- current.right &lt;- current
+      ELSE ADD-NODE(current, head.min)
+      current &lt;- current.right
+    root.degree &lt;- 0
+    root.child &lt;- NULL
+
+  FUNCTION CREATE-FIBONACCI-HEAP():
+    heap &lt;- new FibonacciHeap with head.keyNum = 0, head.maxDegree = 0, head.min = NULL, nodes = {}
+    RETURN heap
+
+  FUNCTION POP-MIN(heap):
+    IF head.min == NULL THEN
+      RETURN (-1, ULONG_MAX)
+    minNode &lt;- head.min
+    ERASE-CHILDREN(minNode)
+    IF minNode.right == minNode THEN head.min &lt;- NULL
+    ELSE
+      minSilbing &lt;- minNode.right
+      minValue &lt;- ULONG_MAX
+      WHILE minSilbing != minNode
+        IF minValue &gt; minSilbing.key.second THEN
+          minValue &lt;- minSilbing.key.second
+          head.min &lt;- minSilbing
+        minSilbing &lt;- minSilbing.right
+      END WHILE
+    END IF
+    REMOVE-NODE(minNode)
+    head.keyNum &lt;- head.keyNum - 1
+    minKey &lt;- minNode.key
+    nodes.erase(minKey.first)
+    DELETE minNode
+    IF head.min != NULL THEN
+      minNode &lt;- head.min
+      cons &lt;- vector of FibonacciNode pointers, with size of log2(head.keyNum)+1, initialized to NULL
+      minSilbing &lt;- minNode
+      next &lt;- minNode.right
+      WHILE next != minNode
+        occupied &lt;- cons[minSilbing.degree]
+        WHILE occupied != NULL
+          cons[minSilbing.degree] &lt;- NULL
+          IF occupied.key.second &lt;= minSilbing.key.second THEN
+            occupied.degree &lt;- occupied.degree + 1
+            REMOVE-NODE(minSilbing)
+            minSilbing.parent &lt;- occupied
+            IF occupied.child == NULL THEN
+              occupied.child &lt;- minSilbing
+              minSilbing.left &lt;- minSilbing.right &lt;- minSilbing
+            ELSE ADD-NODE(minSilbing, occupied.child)
+            END IF
+          ELSE
+            minSilbing.degree &lt;- minSilbing.degree + 1
+            REMOVE-NODE(occupied)
+            occupied.parent &lt;- minSilbing
+            IF minSilbing.child == NULL THEN
+              minSilbing.child &lt;- occupied
+              occupied.left &lt;- occupied.right &lt;- occupied
+            ELSE ADD-NODE(occupied, minSilbing.child)
+            END IF
+          END IF
+        END WHILE
+        minSilbing &lt;- next
+        next &lt;- next.right
+      END WHILE
+    END IF
+    RETURN minKey
+
+  FUNCTION PUSH(heap, index, value):
+    current &lt;- new FibonacciNode with key = (index, value), degree = 0, left = right = current, parent = child = NULL, marked = false
+    nodes[index] &lt;- current
+    IF head.min == NULL THEN head.min &lt;- current
+    ELSE
+      ADD-NODE(current, head.min)
+      IF head.min.key.second &gt; current.key.second THEN head.min &lt;- current
+    END IF
+    head.keyNum &lt;- head.keyNum + 1
+
+  FUNCTION DECREASE(heap, index, value):
+    current &lt;- nodes[index]
+    current.key.second &lt;- value
+    WHILE current.parent != NULL AND current.parent.key.second &gt; current.key.second
+      temp &lt;- current.key
+      current.key &lt;- current.parent.key
+      current.parent.key &lt;- temp
+      nodes[current.key.first] &lt;- current
+      current &lt;- current.parent
+      nodes[current.key.first] &lt;- current
+    IF head.min.key.second &gt; value THEN head.min &lt;- current
+</code></pre><h3 id="复杂度分析-3">复杂度分析 </h3>
+<p>在使用斐波那契堆实现 Dijkstra 算法时，我们需要分析以下几个方面的复杂度：</p>
+<ol>
+<li>
+<p><strong>初始化</strong>：创建斐波那契堆的时间复杂度为 O(1)，因为只是创建了一个空的容器，而不涉及对节点的任何操作。</p>
+</li>
+<li>
+<p><strong>插入节点</strong>：将节点插入斐波那契堆的时间复杂度为 O(1)，因为只需要将节点添加到堆的根链表中，而不需要任何重新平衡的操作。</p>
+</li>
+<li>
+<p><strong>减小节点值</strong>：对一个节点的值进行减小的操作需要沿着其父节点的路径向上遍历，并且在需要时调整树结构。在最坏情况下，该操作的时间复杂度为 O(log V)，其中 V 是堆中节点的数量。</p>
+</li>
+<li>
+<p><strong>删除最小值节点</strong>：删除斐波那契堆中的最小值节点的时间复杂度为 O(log V)，其中 V 是堆中节点的数量。在该操作中，我们需要合并堆中的根链表，并且可能需要进行级联剪切和级联合并操作以维护斐波那契堆的性质。</p>
+</li>
+<li>
+<p><strong>Relax 操作</strong>：对于每个顶点，我们需要执行 Relax 操作以更新到达每个邻接顶点的最短路径。由于 Relax 操作涉及到减小节点值，因此 Relax 操作的时间复杂度为 O(log V)。</p>
+</li>
+</ol>
+<p>综上所述，基于斐波那契堆的 Dijkstra 算法的时间复杂度为 O(E + V log V)，其中 V 是顶点的数量，E 是边的数量。相比于基于二叉堆的实现，斐波那契堆的实现能够在实际应用中更快地收敛，但由于其常数偏大，所以需要在较大的图上才能体现出优势。</p>
+<hr>
+<h1 id="第三章-测试结果">第三章: 测试结果 </h1>
+<p>测试结果的具体数据请参考项目文件夹下 code/test/output.csv<br>
+以下为其的可视化结果:<br>
+<img src="../resource/time.png" alt=""><br>
+结果以三种数据结构所用的平均时长作为参考,绘制了三种数据结构所用时长与平均时长地比值<br>
+黑色虚线所表明的为平均用时，高于黑色虚线的为高于平均用时,地于黑色虚线为低于平均用时</p>
+<hr>
+<h1 id="第四章-分析与评价">第四章: 分析与评价 </h1>
+<h2 id="结果分析">结果分析 </h2>
+<p>通过可视化结果可以看出实验结果与理论上的时间复杂度相当<br>
+同时可以观察到在图节点数较少时,链接表用时较优,这是因为无论二叉堆或是斐波那契堆的常数项都较大导致的<br>
+而可以看到在图节点变大时,二叉堆与斐波那契堆的优势就得以体现,同时二者较为接近<br>
+同时,可以发现所用的时间存在明显波动,这是因为实验为了体现二叉堆与斐波那契堆的优势采用了完全连接图,同时边长也是随机设定的,使得寻路上存在随机性<br>
+而在实验时若是取多次实验的平均值即可较好地消除波动,但这会耗费大量的时间</p>
+<h2 id="实验评价">实验评价 </h2>
+<p>实验对边长的随机选取为在 0 到节点数之间均匀选取,这会导致在有些图当中出现很快到达最终节点的情况(比如初始节点与最终节点边长为 0),导致了实验的最终数据呈现出较大的波动<br>
+同时实验直接用链接表储存图,对内存的优化并不是很好,由于二叉堆与斐波那契堆的常数值较大,所以在测试时希望较可能地调大节点数,但总是造成内存不够,但最终仍然体现了二叉堆与斐波那契堆的优势</p>
+<hr>
+<h1 id="附录-源代码">附录: 源代码 </h1>
+<h2 id="链接表-1">链接表 </h2>
+<h3 id="linkedlisthpp">linkedList.hpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstddef&gt;</span>   <span class="token comment">// Provides definitions for size_t</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;climits&gt;</span>   <span class="token comment">// Provides constants for limits of integral types</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;utility&gt;</span>   <span class="token comment">// Provides std::pair and std::make_pair</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ull</span> <span class="token expression"><span class="token keyword keyword-unsigned">unsigned</span> <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span>   </span><span class="token comment">// Define ull as an alias for unsigned long long</span></span>
+
+<span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>   <span class="token comment">// Using the standard namespace</span>
+
+<span class="token comment">// Definition of the linkedList class</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">linkedList</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-private">private</span><span class="token operator">:</span>
+  <span class="token comment">// Definition of a private nested struct listNode</span>
+  <span class="token keyword keyword-struct">struct</span> <span class="token class-name">listNode</span> <span class="token punctuation">{</span>
+    size_t index <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>          <span class="token comment">// Index of the node initialized to -1</span>
+    ull value <span class="token operator">=</span> ULLONG_MAX<span class="token punctuation">;</span>     <span class="token comment">// Value of the node initialized to maximum value of ull</span>
+    listNode<span class="token operator">*</span> prev <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>   <span class="token comment">// Pointer to the previous node initialized to nullptr</span>
+    listNode<span class="token operator">*</span> next <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>   <span class="token comment">// Pointer to the next node initialized to nullptr</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  listNode<span class="token operator">*</span> head <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>     <span class="token comment">// Pointer to the head of the linked list initialized to nullptr</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+  <span class="token function">linkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">// Constructor declaration</span>
+  <span class="token operator">~</span><span class="token function">linkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// Destructor declaration</span>
+  pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> <span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Method to remove and return the node with minimum value</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">push</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Method to insert a new node at the beginning</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">decrease</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Method to update the value of a node given its index</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><h3 id="linkedlistcpp">linkedList.cpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"linkedList.hpp"</span></span>
+
+<span class="token comment">// Constructor definition</span>
+linkedList<span class="token double-colon punctuation">::</span><span class="token function">linkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Destructor definition</span>
+<span class="token class-name">linkedList</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">linkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  listNode<span class="token operator">*</span> current <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>   <span class="token comment">// Start from the head of the linked list</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>current <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>      <span class="token comment">// Loop until the end of the list is reached</span>
+    <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>     <span class="token comment">// Move head to the next node</span>
+    <span class="token keyword keyword-delete">delete</span> current<span class="token punctuation">;</span>                 <span class="token comment">// Delete the current node</span>
+    current <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>           <span class="token comment">// Move to the next node</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Method to remove and return the node with minimum value</span>
+pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> linkedList<span class="token double-colon punctuation">::</span><span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  listNode<span class="token operator">*</span> minNode <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>      <span class="token comment">// Pointer to the node with minimum value initialized to nullptr</span>
+  size_t minIndex <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>             <span class="token comment">// Index of the node with minimum value initialized to -1</span>
+  ull minValue <span class="token operator">=</span> ULLONG_MAX<span class="token punctuation">;</span>        <span class="token comment">// Minimum value initialized to maximum value of ull</span>
+  <span class="token comment">// Iterate through the linked list to find the node with minimum value</span>
+  <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>listNode<span class="token operator">*</span> current <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token punctuation">;</span> current <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span> current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>value <span class="token operator">&lt;</span> minValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      minNode <span class="token operator">=</span> current<span class="token punctuation">;</span>
+      minIndex <span class="token operator">=</span> current<span class="token operator">-&gt;</span>index<span class="token punctuation">;</span>
+      minValue <span class="token operator">=</span> current<span class="token operator">-&gt;</span>value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token comment">// If a node with minimum value is found, remove it from the list</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minNode <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minNode<span class="token operator">-&gt;</span>prev <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> minNode<span class="token operator">-&gt;</span>prev<span class="token operator">-&gt;</span>next <span class="token operator">=</span> minNode<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minNode<span class="token operator">-&gt;</span>next <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> minNode<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> minNode<span class="token operator">-&gt;</span>prev<span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minNode <span class="token operator">==</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token punctuation">)</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head <span class="token operator">=</span> minNode<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token keyword keyword-delete">delete</span> minNode<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// Return the index and value of the removed node as a pair</span>
+  <span class="token keyword keyword-return">return</span> <span class="token function">make_pair</span><span class="token punctuation">(</span>minIndex<span class="token punctuation">,</span> minValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Method to insert a new node at the beginning of the linked list</span>
+<span class="token keyword keyword-void">void</span> linkedList<span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  listNode<span class="token operator">*</span> current <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> listNode<span class="token punctuation">;</span>   <span class="token comment">// Create a new node</span>
+  current<span class="token operator">-&gt;</span>index <span class="token operator">=</span> index<span class="token punctuation">;</span>             <span class="token comment">// Set its index</span>
+  current<span class="token operator">-&gt;</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>             <span class="token comment">// Set its value</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> current<span class="token punctuation">;</span>   <span class="token comment">// Update the previous pointer of the current head</span>
+  current<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>         <span class="token comment">// Set the next pointer of the new node to the current head</span>
+  <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head <span class="token operator">=</span> current<span class="token punctuation">;</span>               <span class="token comment">// Update the head to point to the new node</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Method to update the value of a node given its index</span>
+<span class="token keyword keyword-void">void</span> linkedList<span class="token double-colon punctuation">::</span><span class="token function">decrease</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  listNode<span class="token operator">*</span> current <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>     <span class="token comment">// Start from the head of the linked list</span>
+  <span class="token comment">// Iterate through the list to find the node with the given index</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>current <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>index <span class="token operator">==</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      current<span class="token operator">-&gt;</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>         <span class="token comment">// Update the value of the node if found</span>
+      <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>          <span class="token comment">// Move to the next node</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="二叉堆-1">二叉堆 </h2>
+<h3 id="binaryheaphpp">binaryHeap.hpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstddef&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;climits&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;utility&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map&gt;</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ull</span> <span class="token expression"><span class="token keyword keyword-unsigned">unsigned</span> <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span></span></span>
+
+<span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">binaryHeap</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-private">private</span><span class="token operator">:</span>
+  vector<span class="token operator">&lt;</span>ull<span class="token operator">&gt;</span> values <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Vector to store values in the heap</span>
+  map<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> size_t<span class="token operator">&gt;</span> indexes <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Map to store indexes corresponding to their places in the heap</span>
+  map<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> size_t<span class="token operator">&gt;</span> places <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Map to store places corresponding to their indexes in the heap</span>
+  size_t <span class="token function">parent</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword keyword-return">return</span> <span class="token punctuation">(</span>place<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment">// Function to find the parent of a node in the heap</span>
+  size_t <span class="token function">left</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword keyword-return">return</span> <span class="token number">2</span><span class="token operator">*</span>place<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment">// Function to find the left child of a node in the heap</span>
+  size_t <span class="token function">right</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword keyword-return">return</span> <span class="token number">2</span><span class="token operator">*</span>place<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment">// Function to find the right child of a node in the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>size_t place1<span class="token punctuation">,</span> size_t place2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Function to swap two nodes in the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">swapDown</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Function to adjust the heap downwards from a given place</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">swapUp</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Function to adjust the heap upwards from a given place</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+  <span class="token function">binaryHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Constructor</span>
+  <span class="token operator">~</span><span class="token function">binaryHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Destructor</span>
+  pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> <span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Function to pop the minimum element from the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">push</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Function to push a new element into the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">decrease</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Function to decrease the value of an element in the heap</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><h3 id="binaryheapcpp">binaryHeap.cpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"binaryHeap.hpp"</span></span>
+
+<span class="token comment">// Function to swap two nodes in the heap</span>
+<span class="token keyword keyword-void">void</span> binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">swap</span><span class="token punctuation">(</span>size_t place1<span class="token punctuation">,</span> size_t place2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ull tempValue <span class="token operator">=</span> values<span class="token punctuation">[</span>place1<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Store value of place1</span>
+  values<span class="token punctuation">[</span>place1<span class="token punctuation">]</span> <span class="token operator">=</span> values<span class="token punctuation">[</span>place2<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Assign value of place2 to place1</span>
+  values<span class="token punctuation">[</span>place2<span class="token punctuation">]</span> <span class="token operator">=</span> tempValue<span class="token punctuation">;</span> <span class="token comment">// Assign stored value of place1 to place2</span>
+
+  size_t index1 <span class="token operator">=</span> indexes<span class="token punctuation">[</span>place1<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Get index corresponding to place1</span>
+  size_t index2 <span class="token operator">=</span> indexes<span class="token punctuation">[</span>place2<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Get index corresponding to place2</span>
+  indexes<span class="token punctuation">[</span>place1<span class="token punctuation">]</span> <span class="token operator">=</span> index2<span class="token punctuation">;</span> <span class="token comment">// Update index of place1 with index2</span>
+  indexes<span class="token punctuation">[</span>place2<span class="token punctuation">]</span> <span class="token operator">=</span> index1<span class="token punctuation">;</span> <span class="token comment">// Update index of place2 with index1</span>
+  places<span class="token punctuation">[</span>index1<span class="token punctuation">]</span> <span class="token operator">=</span> place2<span class="token punctuation">;</span> <span class="token comment">// Update place of index1 with place2</span>
+  places<span class="token punctuation">[</span>index2<span class="token punctuation">]</span> <span class="token operator">=</span> place1<span class="token punctuation">;</span> <span class="token comment">// Update place of index2 with place1</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Function to adjust the heap downwards from a given place</span>
+<span class="token keyword keyword-void">void</span> binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">swapDown</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  size_t l <span class="token operator">=</span> <span class="token function">left</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get left child</span>
+  size_t r <span class="token operator">=</span> <span class="token function">right</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get right child</span>
+  size_t smallest <span class="token operator">=</span> place<span class="token punctuation">;</span> <span class="token comment">// Initialize smallest as current place</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;</span> values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">&lt;</span> values<span class="token punctuation">[</span>smallest<span class="token punctuation">]</span><span class="token punctuation">)</span> smallest <span class="token operator">=</span> l<span class="token punctuation">;</span> <span class="token comment">// If left child is smaller, update smallest</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>r <span class="token operator">&lt;</span> values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">&lt;</span> values<span class="token punctuation">[</span>smallest<span class="token punctuation">]</span><span class="token punctuation">)</span> smallest <span class="token operator">=</span> r<span class="token punctuation">;</span> <span class="token comment">// If right child is smaller, update smallest</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>smallest <span class="token operator">!=</span> place<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Repeat until smallest is the same as place</span>
+    <span class="token function">swap</span><span class="token punctuation">(</span>place<span class="token punctuation">,</span> smallest<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Swap place with smallest</span>
+    place <span class="token operator">=</span> smallest<span class="token punctuation">;</span> <span class="token comment">// Update place</span>
+    l <span class="token operator">=</span> <span class="token function">left</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get left child</span>
+    r <span class="token operator">=</span> <span class="token function">right</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get right child</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;</span> values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">&lt;</span> values<span class="token punctuation">[</span>smallest<span class="token punctuation">]</span><span class="token punctuation">)</span> smallest <span class="token operator">=</span> l<span class="token punctuation">;</span> <span class="token comment">// If left child is smaller, update smallest</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>r <span class="token operator">&lt;</span> values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">&lt;</span> values<span class="token punctuation">[</span>smallest<span class="token punctuation">]</span><span class="token punctuation">)</span> smallest <span class="token operator">=</span> r<span class="token punctuation">;</span> <span class="token comment">// If right child is smaller, update smallest</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Function to adjust the heap upwards from a given place</span>
+<span class="token keyword keyword-void">void</span> binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">swapUp</span><span class="token punctuation">(</span>size_t place<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>place <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> values<span class="token punctuation">[</span><span class="token function">parent</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> values<span class="token punctuation">[</span>place<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Repeat until place is root or parent is smaller</span>
+    <span class="token function">swap</span><span class="token punctuation">(</span>place<span class="token punctuation">,</span> <span class="token function">parent</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Swap place with its parent</span>
+    place <span class="token operator">=</span> <span class="token function">parent</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Update place</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Constructor</span>
+binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">binaryHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Destructor</span>
+<span class="token class-name">binaryHeap</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">binaryHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Function to pop the minimum element from the heap</span>
+pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token function">make_pair</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> ULLONG_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// If heap is empty, return invalid pair</span>
+  ull value <span class="token operator">=</span> values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Get minimum value</span>
+  size_t index <span class="token operator">=</span> indexes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Get index of minimum value</span>
+  values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> values<span class="token punctuation">[</span>values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Replace minimum value with last value</span>
+  indexes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> indexes<span class="token punctuation">[</span>values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Update index of minimum value</span>
+  places<span class="token punctuation">[</span>indexes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// Update place of the index of minimum value</span>
+  values<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Remove last value from heap</span>
+  indexes<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Remove index of last value from map</span>
+  places<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Remove place of the index from map</span>
+  <span class="token function">swapDown</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Adjust heap downwards from root</span>
+  <span class="token keyword keyword-return">return</span> <span class="token function">make_pair</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Return pair of index and value</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Function to push a new element into the heap</span>
+<span class="token keyword keyword-void">void</span> binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  size_t place <span class="token operator">=</span> values<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get new place for the element</span>
+  places<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> place<span class="token punctuation">;</span> <span class="token comment">// Update place of the index</span>
+  indexes<span class="token punctuation">[</span>place<span class="token punctuation">]</span> <span class="token operator">=</span> index<span class="token punctuation">;</span> <span class="token comment">// Update index of the place</span>
+  values<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Add value to the heap</span>
+  <span class="token function">swapUp</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Adjust heap upwards from the new place</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Function to decrease the value of an element in the heap</span>
+<span class="token keyword keyword-void">void</span> binaryHeap<span class="token double-colon punctuation">::</span><span class="token function">decrease</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  size_t place <span class="token operator">=</span> places<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Get place of the index</span>
+  values<span class="token punctuation">[</span>place<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span> <span class="token comment">// Update value at the place</span>
+  <span class="token function">swapUp</span><span class="token punctuation">(</span>place<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Adjust heap upwards from the place</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="斐波那契堆-1">斐波那契堆 </h2>
+<h3 id="fibonacciheaphpp">FibonacciHeap.hpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstddef&gt;</span>   <span class="token comment">// Provides definitions for size_t</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;climits&gt;</span>   <span class="token comment">// Provides constants for limits of integral types</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map&gt;</span>       <span class="token comment">// Provides std::map for associative arrays</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;queue&gt;</span>     <span class="token comment">// Provides std::queue for breadth-first traversal</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cmath&gt;</span>     <span class="token comment">// Provides mathematical functions</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ull</span> <span class="token expression"><span class="token keyword keyword-unsigned">unsigned</span> <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span>   </span><span class="token comment">// Define ull as an alias for unsigned long long</span></span>
+
+<span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>   <span class="token comment">// Using the standard namespace</span>
+
+<span class="token comment">// Definition of the FibonacciHeap class</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">FibonacciHeap</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-private">private</span><span class="token operator">:</span>
+  <span class="token comment">// Definition of a private nested struct FibonacciNode representing nodes in the heap</span>
+  <span class="token keyword keyword-struct">struct</span> <span class="token class-name">FibonacciNode</span> <span class="token punctuation">{</span>
+    pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> key <span class="token operator">=</span> <span class="token function">make_pair</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> ULLONG_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Key stored in the node, initialized to a sentinel value</span>
+    size_t degree <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                                   <span class="token comment">// Degree of the node (number of children)</span>
+    FibonacciNode<span class="token operator">*</span> left <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">;</span>                          <span class="token comment">// Pointer to the left sibling node</span>
+    FibonacciNode<span class="token operator">*</span> right <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">;</span>                         <span class="token comment">// Pointer to the right sibling node</span>
+    FibonacciNode<span class="token operator">*</span> parent <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>                     <span class="token comment">// Pointer to the parent node</span>
+    FibonacciNode<span class="token operator">*</span> child <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>                      <span class="token comment">// Pointer to the child node</span>
+    <span class="token keyword keyword-bool">bool</span> marked <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                                 <span class="token comment">// Flag indicating if the node has lost a child since the last time it was made the child of another node</span>
+    <span class="token comment">// Constructor initializing the node</span>
+    <span class="token function">FibonacciNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      degree <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      left <span class="token operator">=</span> right <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">;</span>
+      parent <span class="token operator">=</span> child <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Definition of a private nested struct FibonacciHead representing the head of the Fibonacci heap</span>
+  <span class="token keyword keyword-struct">struct</span> <span class="token class-name">FibonacciHead</span> <span class="token punctuation">{</span>
+    size_t keyNum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>             <span class="token comment">// Number of keys in the heap</span>
+    size_t maxDegree <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>          <span class="token comment">// Maximum degree among all nodes in the heap</span>
+    FibonacciNode<span class="token operator">*</span> min <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>  <span class="token comment">// Pointer to the minimum node in the heap</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  FibonacciHead<span class="token operator">*</span> head <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>   <span class="token comment">// Pointer to the head of the Fibonacci heap</span>
+  map<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> FibonacciNode<span class="token operator">*</span><span class="token operator">&gt;</span> nodes <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>   <span class="token comment">// Map to store nodes by their index</span>
+
+  <span class="token comment">// Private helper method to remove a node from the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">removeNode</span><span class="token punctuation">(</span>FibonacciNode<span class="token operator">*</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Private helper method to add a node to the list of children of another node</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">addNode</span><span class="token punctuation">(</span>FibonacciNode<span class="token operator">*</span> node<span class="token punctuation">,</span> FibonacciNode<span class="token operator">*</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Private helper method to erase the children of a given node</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">eraseChildren</span><span class="token punctuation">(</span>FibonacciNode<span class="token operator">*</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+  <span class="token function">FibonacciHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// Constructor declaration</span>
+  <span class="token operator">~</span><span class="token function">FibonacciHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// Destructor declaration</span>
+  pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> <span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// Method to remove and return the minimum key from the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">push</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// Method to insert a key-value pair into the heap</span>
+  <span class="token keyword keyword-void">void</span> <span class="token function">decrease</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Method to decrease the value of a key in the heap</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><h3 id="fibonacciheapcpp">FibonacciHeap.cpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"FibonacciHeap.hpp"</span></span>
+
+<span class="token comment">// Helper method to remove a node from the linked list of nodes</span>
+<span class="token keyword keyword-void">void</span> <span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">removeNode</span><span class="token punctuation">(</span>FibonacciNode<span class="token operator">*</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  node<span class="token operator">-&gt;</span>left<span class="token operator">-&gt;</span>right <span class="token operator">=</span> node<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>  <span class="token comment">// Adjust the pointers to skip the node being removed</span>
+  node<span class="token operator">-&gt;</span>right<span class="token operator">-&gt;</span>left <span class="token operator">=</span> node<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Helper method to add a node to the list of children of another node</span>
+<span class="token keyword keyword-void">void</span> <span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">addNode</span><span class="token punctuation">(</span>FibonacciNode<span class="token operator">*</span> node<span class="token punctuation">,</span> FibonacciNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  node<span class="token operator">-&gt;</span>left <span class="token operator">=</span> root<span class="token punctuation">;</span>            <span class="token comment">// Set the left pointer of the new node to the root</span>
+  node<span class="token operator">-&gt;</span>right <span class="token operator">=</span> root<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>    <span class="token comment">// Set the right pointer of the new node to the right of the root</span>
+  root<span class="token operator">-&gt;</span>right<span class="token operator">-&gt;</span>left <span class="token operator">=</span> node<span class="token punctuation">;</span>     <span class="token comment">// Adjust the left pointer of the root's right neighbor to point to the new node</span>
+  root<span class="token operator">-&gt;</span>right <span class="token operator">=</span> node<span class="token punctuation">;</span>           <span class="token comment">// Adjust the right pointer of the root to point to the new node</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Helper method to erase the children of a given node</span>
+<span class="token keyword keyword-void">void</span> <span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">eraseChildren</span><span class="token punctuation">(</span>FibonacciNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> root<span class="token operator">-&gt;</span>degree<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    FibonacciNode<span class="token operator">*</span> current <span class="token operator">=</span> root<span class="token operator">-&gt;</span>child<span class="token punctuation">;</span>  <span class="token comment">// Get the child of the root</span>
+    root<span class="token operator">-&gt;</span>child <span class="token operator">=</span> current<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>          <span class="token comment">// Update the child pointer of the root</span>
+    current<span class="token operator">-&gt;</span>parent <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>             <span class="token comment">// Reset the parent pointer of the child</span>
+    <span class="token function">removeNode</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>                   <span class="token comment">// Remove the child from the linked list</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment">// If there is no minimum node in the heap</span>
+      head<span class="token operator">-&gt;</span>min <span class="token operator">=</span> current<span class="token punctuation">;</span>                 <span class="token comment">// Set the current child as the new minimum</span>
+      current<span class="token operator">-&gt;</span>left <span class="token operator">=</span> current<span class="token operator">-&gt;</span>right <span class="token operator">=</span> current<span class="token punctuation">;</span>  <span class="token comment">// Update the pointers to make it a circular list</span>
+    <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+      <span class="token function">addNode</span><span class="token punctuation">(</span>current<span class="token punctuation">,</span> head<span class="token operator">-&gt;</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// Add the current child to the list of roots</span>
+    <span class="token punctuation">}</span>
+    current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>               <span class="token comment">// Move to the next child</span>
+  <span class="token punctuation">}</span>
+  root<span class="token operator">-&gt;</span>degree <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                        <span class="token comment">// Reset the degree of the root</span>
+  root<span class="token operator">-&gt;</span>child <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>                   <span class="token comment">// Reset the child pointer of the root</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Constructor definition</span>
+<span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">FibonacciHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  head <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> FibonacciHead<span class="token punctuation">;</span>   <span class="token comment">// Create a new FibonacciHead object and assign its address to head</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Destructor definition</span>
+<span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">FibonacciHeap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// If the heap is empty</span>
+    <span class="token keyword keyword-delete">delete</span> head<span class="token punctuation">;</span>               <span class="token comment">// Delete the head</span>
+    <span class="token keyword keyword-return">return</span><span class="token punctuation">;</span>                    <span class="token comment">// Exit the function</span>
+  <span class="token punctuation">}</span>
+  queue<span class="token operator">&lt;</span>FibonacciNode<span class="token operator">*</span><span class="token operator">&gt;</span> current<span class="token punctuation">;</span>   <span class="token comment">// Create a queue to perform breadth-first traversal</span>
+  current<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// Push the minimum node into the queue</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>current<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>       <span class="token comment">// Continue until the queue becomes empty</span>
+    FibonacciNode<span class="token operator">*</span> temp <span class="token operator">=</span> current<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Get the front node from the queue</span>
+    current<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                          <span class="token comment">// Remove the front node from the queue</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>temp<span class="token operator">-&gt;</span>right <span class="token operator">!=</span> temp<span class="token punctuation">)</span> current<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>temp<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Push the right sibling into the queue if it exists</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>temp<span class="token operator">-&gt;</span>child <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> current<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>temp<span class="token operator">-&gt;</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Push the child into the queue if it exists</span>
+    <span class="token function">removeNode</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Remove the current node from the linked list</span>
+    <span class="token keyword keyword-delete">delete</span> temp<span class="token punctuation">;</span>       <span class="token comment">// Delete the current node</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword keyword-delete">delete</span> head<span class="token punctuation">;</span>  <span class="token comment">// Delete the head</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// This part of the code defines the methods of the FibonacciHeap class: popMin, push, and decrease.</span>
+<span class="token comment">// These methods perform operations on the Fibonacci heap data structure, including removing the minimum element,</span>
+<span class="token comment">// inserting a new element, and decreasing the value of an existing element.</span>
+
+<span class="token comment">// Method to remove and return the minimum key from the heap</span>
+pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> <span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token function">make_pair</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> ULLONG_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// If the heap is empty, return a sentinel value</span>
+
+  FibonacciNode<span class="token operator">*</span> minNode <span class="token operator">=</span> head<span class="token operator">-&gt;</span>min<span class="token punctuation">;</span>  <span class="token comment">// Get the minimum node from the heap</span>
+  <span class="token function">eraseChildren</span><span class="token punctuation">(</span>minNode<span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// Erase the children of the minimum node</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minNode<span class="token operator">-&gt;</span>right <span class="token operator">==</span> minNode<span class="token punctuation">)</span> head<span class="token operator">-&gt;</span>min <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>  <span class="token comment">// If there is only one node in the heap, set min to nullptr</span>
+  <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+    FibonacciNode<span class="token operator">*</span> minSibling <span class="token operator">=</span> minNode<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>  <span class="token comment">// Get the right sibling of the minimum node</span>
+    ull minValue <span class="token operator">=</span> ULLONG_MAX<span class="token punctuation">;</span>                   <span class="token comment">// Initialize the minimum value to the maximum possible value</span>
+    <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>minSibling <span class="token operator">!=</span> minNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>              <span class="token comment">// Iterate over the siblings of the minimum node</span>
+      <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minValue <span class="token operator">&gt;</span> minSibling<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// Update the minimum value if a smaller value is found</span>
+        minValue <span class="token operator">=</span> minSibling<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second<span class="token punctuation">;</span>
+        head<span class="token operator">-&gt;</span>min <span class="token operator">=</span> minSibling<span class="token punctuation">;</span>  <span class="token comment">// Update the min pointer to point to the new minimum node</span>
+      <span class="token punctuation">}</span>
+      minSibling <span class="token operator">=</span> minSibling<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>  <span class="token comment">// Move to the next sibling</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">removeNode</span><span class="token punctuation">(</span>minNode<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// Remove the minimum node from the linked list</span>
+  <span class="token operator">--</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>keyNum<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// Decrease the number of keys in the heap</span>
+  pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> minKey <span class="token operator">=</span> minNode<span class="token operator">-&gt;</span>key<span class="token punctuation">;</span>  <span class="token comment">// Get the key of the minimum node</span>
+  nodes<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>minKey<span class="token punctuation">.</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Erase the node from the map of nodes</span>
+  <span class="token keyword keyword-delete">delete</span> minNode<span class="token punctuation">;</span>             <span class="token comment">// Delete the minimum node</span>
+
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// If the heap is not empty after removing the minimum node</span>
+    FibonacciNode<span class="token operator">*</span> minNode <span class="token operator">=</span> head<span class="token operator">-&gt;</span>min<span class="token punctuation">;</span>  <span class="token comment">// Get the new minimum node</span>
+    vector<span class="token operator">&lt;</span>FibonacciNode<span class="token operator">*</span><span class="token operator">&gt;</span> <span class="token function">cons</span><span class="token punctuation">(</span><span class="token function">size_t</span><span class="token punctuation">(</span><span class="token function">log2</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>keyNum<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Create an array to store nodes with the same degree</span>
+    FibonacciNode<span class="token operator">*</span> minSibling <span class="token operator">=</span> minNode<span class="token punctuation">;</span>  <span class="token comment">// Initialize the sibling pointer to the minimum node</span>
+    FibonacciNode<span class="token operator">*</span> next <span class="token operator">=</span> minNode<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span> <span class="token comment">// Get the next node in the circular list</span>
+    <span class="token keyword keyword-do">do</span> <span class="token punctuation">{</span>
+      FibonacciNode<span class="token operator">*</span> occupied <span class="token operator">=</span> cons<span class="token punctuation">[</span>minSibling<span class="token operator">-&gt;</span>degree<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// Get the node with the same degree as the current node</span>
+      <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>occupied <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">// Merge nodes with the same degree until no more nodes with the same degree are found</span>
+        cons<span class="token punctuation">[</span>minSibling<span class="token operator">-&gt;</span>degree<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">;</span>  <span class="token comment">// Reset the entry in the array</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>occupied<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second <span class="token operator">&lt;=</span> minSibling<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// If the occupied node has a smaller key</span>
+          <span class="token operator">++</span><span class="token punctuation">(</span>occupied<span class="token operator">-&gt;</span>degree<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Increase the degree of the occupied node</span>
+          <span class="token function">removeNode</span><span class="token punctuation">(</span>minSibling<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Remove the current node from the linked list</span>
+          minSibling<span class="token operator">-&gt;</span>parent <span class="token operator">=</span> occupied<span class="token punctuation">;</span>  <span class="token comment">// Set the parent pointer of the current node</span>
+          <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>occupied<span class="token operator">-&gt;</span>child <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// If the occupied node has no children</span>
+            occupied<span class="token operator">-&gt;</span>child <span class="token operator">=</span> minSibling<span class="token punctuation">;</span>  <span class="token comment">// Make the current node its child</span>
+            minSibling<span class="token operator">-&gt;</span>left <span class="token operator">=</span> minSibling<span class="token operator">-&gt;</span>right <span class="token operator">=</span> minSibling<span class="token punctuation">;</span>  <span class="token comment">// Make the current node a circular list</span>
+          <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+            <span class="token function">addNode</span><span class="token punctuation">(</span>minSibling<span class="token punctuation">,</span> occupied<span class="token operator">-&gt;</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Add the current node to the list of children of the occupied node</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>  <span class="token comment">// If the current node has a smaller key</span>
+          <span class="token operator">++</span><span class="token punctuation">(</span>minSibling<span class="token operator">-&gt;</span>degree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">removeNode</span><span class="token punctuation">(</span>occupied<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          occupied<span class="token operator">-&gt;</span>parent <span class="token operator">=</span> minSibling<span class="token punctuation">;</span>
+          <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minSibling<span class="token operator">-&gt;</span>child <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            minSibling<span class="token operator">-&gt;</span>child <span class="token operator">=</span> occupied<span class="token punctuation">;</span>
+            occupied<span class="token operator">-&gt;</span>left <span class="token operator">=</span> occupied<span class="token operator">-&gt;</span>right <span class="token operator">=</span> occupied<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span>
+            <span class="token function">addNode</span><span class="token punctuation">(</span>occupied<span class="token punctuation">,</span> minSibling<span class="token operator">-&gt;</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      minSibling <span class="token operator">=</span> next<span class="token punctuation">;</span>
+      next <span class="token operator">=</span> next<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>next <span class="token operator">!=</span> minNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Return the minimum key</span>
+  <span class="token keyword keyword-return">return</span> minKey<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Method to insert a key-value pair into the heap</span>
+<span class="token keyword keyword-void">void</span> <span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Create a new FibonacciNode with the given key-value pair</span>
+  FibonacciNode<span class="token operator">*</span> current <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> FibonacciNode<span class="token punctuation">;</span>
+  current<span class="token operator">-&gt;</span>key <span class="token operator">=</span> <span class="token function">make_pair</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Store the node in the map of nodes</span>
+  nodes<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> current<span class="token punctuation">;</span>
+
+  <span class="token comment">// Insert the node into the heap</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min <span class="token operator">==</span> <span class="token keyword keyword-nullptr">nullptr</span><span class="token punctuation">)</span>
+    head<span class="token operator">-&gt;</span>min <span class="token operator">=</span> current<span class="token punctuation">;</span> <span class="token comment">// If the heap is empty, set the current node as the minimum</span>
+  <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+    <span class="token function">addNode</span><span class="token punctuation">(</span>current<span class="token punctuation">,</span> head<span class="token operator">-&gt;</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Add the current node to the list of roots</span>
+    <span class="token comment">// Update the minimum pointer if necessary</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second <span class="token operator">&gt;</span> current<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second<span class="token punctuation">)</span>
+      head<span class="token operator">-&gt;</span>min <span class="token operator">=</span> current<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Increment the number of keys in the heap</span>
+  <span class="token operator">++</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>keyNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Method to decrease the value of a key in the heap</span>
+<span class="token keyword keyword-void">void</span> <span class="token class-name">FibonacciHeap</span><span class="token double-colon punctuation">::</span><span class="token function">decrease</span><span class="token punctuation">(</span>size_t index<span class="token punctuation">,</span> ull value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Get the node associated with the given index</span>
+  FibonacciNode<span class="token operator">*</span> current <span class="token operator">=</span> nodes<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Update the value of the key</span>
+  current<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second <span class="token operator">=</span> value<span class="token punctuation">;</span>
+
+  <span class="token comment">// Cascade up to maintain heap order property</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>parent <span class="token operator">!=</span> <span class="token keyword keyword-nullptr">nullptr</span> <span class="token operator">&amp;&amp;</span> current<span class="token operator">-&gt;</span>parent<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second <span class="token operator">&gt;</span> current<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Swap the keys of the current node and its parent</span>
+    pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> temp <span class="token operator">=</span> current<span class="token operator">-&gt;</span>key<span class="token punctuation">;</span>
+    current<span class="token operator">-&gt;</span>key <span class="token operator">=</span> current<span class="token operator">-&gt;</span>parent<span class="token operator">-&gt;</span>key<span class="token punctuation">;</span>
+    current<span class="token operator">-&gt;</span>parent<span class="token operator">-&gt;</span>key <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+
+    <span class="token comment">// Update the node in the map of nodes</span>
+    nodes<span class="token punctuation">[</span>current<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">=</span> current<span class="token punctuation">;</span>
+
+    <span class="token comment">// Move to the parent node</span>
+    current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>parent<span class="token punctuation">;</span>
+
+    <span class="token comment">// Update the node in the map of nodes</span>
+    nodes<span class="token punctuation">[</span>current<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">=</span> current<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Update the minimum pointer if necessary</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>min<span class="token operator">-&gt;</span>key<span class="token punctuation">.</span>second <span class="token operator">&gt;</span> value<span class="token punctuation">)</span>
+    head<span class="token operator">-&gt;</span>min <span class="token operator">=</span> current<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="测试代码">测试代码 </h2>
+<h3 id="performacetestcpp">performaceTest.cpp </h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"linkedList.hpp"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"binaryHeap.hpp"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"FibonacciHeap.hpp"</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstddef&gt;</span>        <span class="token comment">// For size_t</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span>         <span class="token comment">// For vector</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cmath&gt;</span>          <span class="token comment">// For log2</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;chrono&gt;</span>         <span class="token comment">// For timing</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;random&gt;</span>         <span class="token comment">// For random number generation</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span>       <span class="token comment">// For input/output operations</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iomanip&gt;</span>        <span class="token comment">// For formatting output</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ull</span> <span class="token expression"><span class="token keyword keyword-unsigned">unsigned</span> <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span>   </span><span class="token comment">// Define ull as unsigned long long</span></span>
+
+<span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// Function to initialize the distance matrix with random values</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">initial</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>ull<span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> distance<span class="token punctuation">,</span> size_t maxIndex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    default_random_engine <span class="token function">randomNumberGenerator</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Seed random number generator with current time</span>
+    uniform_int_distribution<span class="token operator">&lt;</span>ull<span class="token operator">&gt;</span> <span class="token function">randomNumberDistribution</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Define uniform distribution</span>
+    distance<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Resize the distance matrix</span>
+    <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> maxIndex<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      distance<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Resize each row of the distance matrix</span>
+      <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>size_t j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> maxIndex<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
+        distance<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">randomNumberDistribution</span><span class="token punctuation">(</span>randomNumberGenerator<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Assign random values to each cell</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Function template to perform Dijkstra's algorithm using a specific priority queue implementation</span>
+<span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">Container</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-double">double</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>ull<span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> distance<span class="token punctuation">,</span> size_t maxIndex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vector<span class="token operator">&lt;</span><span class="token keyword keyword-bool">bool</span><span class="token operator">&gt;</span> <span class="token function">touched</span><span class="token punctuation">(</span>maxIndex<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Initialize vector to keep track of touched nodes</span>
+  vector<span class="token operator">&lt;</span>ull<span class="token operator">&gt;</span> <span class="token function">dis</span><span class="token punctuation">(</span>maxIndex<span class="token punctuation">,</span> ULLONG_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Initialize vector to keep track of shortest distances</span>
+  <span class="token keyword keyword-auto">auto</span> start <span class="token operator">=</span> chrono<span class="token double-colon punctuation">::</span>high_resolution_clock<span class="token double-colon punctuation">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Start measuring execution time</span>
+  Container container<span class="token punctuation">;</span>  <span class="token comment">// Create an instance of the priority queue container</span>
+  container<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Push the source node with distance 0 into the priority queue</span>
+  dis<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// Set distance of source node to 0</span>
+  <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pair<span class="token operator">&lt;</span>size_t<span class="token punctuation">,</span> ull<span class="token operator">&gt;</span> minNode <span class="token operator">=</span> container<span class="token punctuation">.</span><span class="token function">popMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Extract the minimum distance node from the priority queue</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>minNode<span class="token punctuation">.</span>first <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>  <span class="token comment">// If there are no more nodes to process, break the loop</span>
+    touched<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment">// Mark the extracted node as touched</span>
+    <span class="token comment">// Update distances to adjacent nodes</span>
+    <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> maxIndex<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>touched<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> dis<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">+</span> distance<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// If the distance to node i through minNode is shorter than the current distance, update it</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> ULLONG_MAX<span class="token punctuation">)</span> 
+          container<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> dis<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">+</span> distance<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// If i is not yet in the priority queue, push it</span>
+        <span class="token keyword keyword-else">else</span> 
+          container<span class="token punctuation">.</span><span class="token function">decrease</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> dis<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">+</span> distance<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// If i is already in the priority queue, decrease its key</span>
+        dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dis<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span> <span class="token operator">+</span> distance<span class="token punctuation">[</span>minNode<span class="token punctuation">.</span>first<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// Update the shortest distance to node i</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword keyword-auto">auto</span> end <span class="token operator">=</span> chrono<span class="token double-colon punctuation">::</span>high_resolution_clock<span class="token double-colon punctuation">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Stop measuring execution time</span>
+  <span class="token keyword keyword-return">return</span> chrono<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">duration_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>chrono<span class="token double-colon punctuation">::</span>duration<span class="token operator">&lt;</span><span class="token keyword keyword-double">double</span><span class="token operator">&gt;&gt;</span></span></span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Return the elapsed time</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Main function</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword keyword-void">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  size_t n <span class="token operator">=</span> <span class="token number">3072</span><span class="token punctuation">;</span>  <span class="token comment">// Maximum index for testing</span>
+  size_t count <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>  <span class="token comment">// Number of iterations for averaging</span>
+  <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-double">double</span> averageLinkedList <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// Initialize average time for linked list</span>
+    <span class="token keyword keyword-double">double</span> averageBinaryHeap <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// Initialize average time for binary heap</span>
+    <span class="token keyword keyword-double">double</span> averageFibonacci  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// Initialize average time for Fibonacci heap</span>
+    <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>size_t j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      size_t maxIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>  <span class="token comment">// Set the size of the graph</span>
+      vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>ull<span class="token operator">&gt;&gt;</span> distance<span class="token punctuation">;</span>  <span class="token comment">// Initialize distance matrix</span>
+      <span class="token function">initial</span><span class="token punctuation">(</span>distance<span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Initialize distance matrix with random values</span>
+
+      <span class="token comment">// Run Dijkstra's algorithm using linked list as priority queue</span>
+      averageLinkedList <span class="token operator">+=</span> <span class="token generic-function"><span class="token function">dijkstra</span><span class="token generic class-name"><span class="token operator">&lt;</span>linkedList<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>distance<span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+      <span class="token comment">// Run Dijkstra's algorithm using binary heap as priority queue</span>
+      averageBinaryHeap <span class="token operator">+=</span> <span class="token generic-function"><span class="token function">dijkstra</span><span class="token generic class-name"><span class="token operator">&lt;</span>binaryHeap<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>distance<span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+      <span class="token comment">// Run Dijkstra's algorithm using Fibonacci heap as priority queue</span>
+      averageFibonacci  <span class="token operator">+=</span> <span class="token generic-function"><span class="token function">dijkstra</span><span class="token generic class-name"><span class="token operator">&lt;</span>FibonacciHeap<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>distance<span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Calculate average times</span>
+    averageLinkedList <span class="token operator">/=</span> count<span class="token punctuation">;</span>
+    averageBinaryHeap <span class="token operator">/=</span> count<span class="token punctuation">;</span>
+    averageFibonacci  <span class="token operator">/=</span> count<span class="token punctuation">;</span>
+    
+    <span class="token comment">// Output average times for each priority queue implementation</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">setw</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> averageLinkedList <span class="token operator">&lt;&lt;</span> <span class="token char">'\t'</span><span class="token punctuation">;</span>  <span class="token comment">// Linked list average time</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">setw</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> averageBinaryHeap <span class="token operator">&lt;&lt;</span> <span class="token char">'\t'</span><span class="token punctuation">;</span>  <span class="token comment">// Binary heap average time</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">setw</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> averageFibonacci <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   <span class="token comment">// Fibonacci heap average time</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h1 id="声明">声明 </h1>
+<h1>特此声明,题为"堆优化的最短路算法"的项目系小组原创,未有借鉴或抄袭</h1>
+<hr>
+<h1 id="签字">签字 </h1>
+<p><img src="../resource/signature.png" alt=""></p>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

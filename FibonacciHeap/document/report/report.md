@@ -355,7 +355,544 @@ STRUCTURE FibonacciHeap:
 ---
 
 # 附录: 源代码
-源代码部分已在项目中给出,请参照项目文件夹下 code/project 文件夹
+## 链接表
+### linkedList.hpp
+```cpp
+#include <cstddef>   // Provides definitions for size_t
+#include <climits>   // Provides constants for limits of integral types
+#include <utility>   // Provides std::pair and std::make_pair
+
+#define ull unsigned long long   // Define ull as an alias for unsigned long long
+
+using namespace std;   // Using the standard namespace
+
+// Definition of the linkedList class
+class linkedList {
+private:
+  // Definition of a private nested struct listNode
+  struct listNode {
+    size_t index = -1;          // Index of the node initialized to -1
+    ull value = ULLONG_MAX;     // Value of the node initialized to maximum value of ull
+    listNode* prev = nullptr;   // Pointer to the previous node initialized to nullptr
+    listNode* next = nullptr;   // Pointer to the next node initialized to nullptr
+  };
+  listNode* head = nullptr;     // Pointer to the head of the linked list initialized to nullptr
+public:
+  linkedList();                 // Constructor declaration
+  ~linkedList();                // Destructor declaration
+  pair<size_t, ull> popMin();   // Method to remove and return the node with minimum value
+  void push(size_t index, ull value);   // Method to insert a new node at the beginning
+  void decrease(size_t index, ull value);   // Method to update the value of a node given its index
+};
+```
+### linkedList.cpp
+```cpp
+#include "linkedList.hpp"
+
+// Constructor definition
+linkedList::linkedList() {}
+
+// Destructor definition
+linkedList::~linkedList() {
+  listNode* current = this->head;   // Start from the head of the linked list
+  while (current != nullptr) {      // Loop until the end of the list is reached
+    this->head = current->next;     // Move head to the next node
+    delete current;                 // Delete the current node
+    current = this->head;           // Move to the next node
+  }
+}
+
+// Method to remove and return the node with minimum value
+pair<size_t, ull> linkedList::popMin() {
+  listNode* minNode = nullptr;      // Pointer to the node with minimum value initialized to nullptr
+  size_t minIndex = -1;             // Index of the node with minimum value initialized to -1
+  ull minValue = ULLONG_MAX;        // Minimum value initialized to maximum value of ull
+  // Iterate through the linked list to find the node with minimum value
+  for (listNode* current = this->head; current != nullptr; current = current->next)
+    if (current->value < minValue) {
+      minNode = current;
+      minIndex = current->index;
+      minValue = current->value;
+    }
+  // If a node with minimum value is found, remove it from the list
+  if (minNode != nullptr) {
+    if (minNode->prev != nullptr) minNode->prev->next = minNode->next;
+    if (minNode->next != nullptr) minNode->next->prev = minNode->prev;
+    if (minNode == this->head) this->head = minNode->next;
+    delete minNode;
+  }
+  // Return the index and value of the removed node as a pair
+  return make_pair(minIndex, minValue);
+}
+
+// Method to insert a new node at the beginning of the linked list
+void linkedList::push(size_t index, ull value) {
+  listNode* current = new listNode;   // Create a new node
+  current->index = index;             // Set its index
+  current->value = value;             // Set its value
+  if (this->head != nullptr) this->head->prev = current;   // Update the previous pointer of the current head
+  current->next = this->head;         // Set the next pointer of the new node to the current head
+  this->head = current;               // Update the head to point to the new node
+}
+
+// Method to update the value of a node given its index
+void linkedList::decrease(size_t index, ull value) {
+  listNode* current = this->head;     // Start from the head of the linked list
+  // Iterate through the list to find the node with the given index
+  while (current != nullptr) {
+    if (current->index == index) {
+      current->value = value;         // Update the value of the node if found
+      break;
+    }
+    current = current->next;          // Move to the next node
+  }
+}
+```
+## 二叉堆
+### binaryHeap.hpp
+```cpp
+#include <cstddef>
+#include <climits>
+#include <utility>
+#include <vector>
+#include <map>
+
+#define ull unsigned long long
+
+using namespace std;
+
+class binaryHeap {
+private:
+  vector<ull> values = {}; // Vector to store values in the heap
+  map<size_t, size_t> indexes = {}; // Map to store indexes corresponding to their places in the heap
+  map<size_t, size_t> places = {}; // Map to store places corresponding to their indexes in the heap
+  size_t parent(size_t place) { return (place-1)/2; } // Function to find the parent of a node in the heap
+  size_t left(size_t place) { return 2*place+1; } // Function to find the left child of a node in the heap
+  size_t right(size_t place) { return 2*place+2; } // Function to find the right child of a node in the heap
+  void swap(size_t place1, size_t place2); // Function to swap two nodes in the heap
+  void swapDown(size_t place); // Function to adjust the heap downwards from a given place
+  void swapUp(size_t place); // Function to adjust the heap upwards from a given place
+public:
+  binaryHeap(); // Constructor
+  ~binaryHeap(); // Destructor
+  pair<size_t, ull> popMin(); // Function to pop the minimum element from the heap
+  void push(size_t index, ull value); // Function to push a new element into the heap
+  void decrease(size_t index, ull value); // Function to decrease the value of an element in the heap
+};
+```
+### binaryHeap.cpp
+```cpp
+#include "binaryHeap.hpp"
+
+// Function to swap two nodes in the heap
+void binaryHeap::swap(size_t place1, size_t place2) {
+  ull tempValue = values[place1]; // Store value of place1
+  values[place1] = values[place2]; // Assign value of place2 to place1
+  values[place2] = tempValue; // Assign stored value of place1 to place2
+
+  size_t index1 = indexes[place1]; // Get index corresponding to place1
+  size_t index2 = indexes[place2]; // Get index corresponding to place2
+  indexes[place1] = index2; // Update index of place1 with index2
+  indexes[place2] = index1; // Update index of place2 with index1
+  places[index1] = place2; // Update place of index1 with place2
+  places[index2] = place1; // Update place of index2 with place1
+}
+
+// Function to adjust the heap downwards from a given place
+void binaryHeap::swapDown(size_t place) {
+  size_t l = left(place); // Get left child
+  size_t r = right(place); // Get right child
+  size_t smallest = place; // Initialize smallest as current place
+  if (l < values.size() && values[l] < values[smallest]) smallest = l; // If left child is smaller, update smallest
+  if (r < values.size() && values[r] < values[smallest]) smallest = r; // If right child is smaller, update smallest
+  while (smallest != place) { // Repeat until smallest is the same as place
+    swap(place, smallest); // Swap place with smallest
+    place = smallest; // Update place
+    l = left(place); // Get left child
+    r = right(place); // Get right child
+    if (l < values.size() && values[l] < values[smallest]) smallest = l; // If left child is smaller, update smallest
+    if (r < values.size() && values[r] < values[smallest]) smallest = r; // If right child is smaller, update smallest
+  }
+}
+
+// Function to adjust the heap upwards from a given place
+void binaryHeap::swapUp(size_t place) {
+  while (place != 0 && values[parent(place)] > values[place]) { // Repeat until place is root or parent is smaller
+    swap(place, parent(place)); // Swap place with its parent
+    place = parent(place); // Update place
+  }
+}
+
+// Constructor
+binaryHeap::binaryHeap() {}
+
+// Destructor
+binaryHeap::~binaryHeap() {}
+
+// Function to pop the minimum element from the heap
+pair<size_t, ull> binaryHeap::popMin() {
+  if (values.size() == 0) return make_pair(-1, ULLONG_MAX); // If heap is empty, return invalid pair
+  ull value = values[0]; // Get minimum value
+  size_t index = indexes[0]; // Get index of minimum value
+  values[0] = values[values.size()-1]; // Replace minimum value with last value
+  indexes[0] = indexes[values.size()-1]; // Update index of minimum value
+  places[indexes[0]] = 0; // Update place of the index of minimum value
+  values.pop_back(); // Remove last value from heap
+  indexes.erase(values.size()); // Remove index of last value from map
+  places.erase(index); // Remove place of the index from map
+  swapDown(0); // Adjust heap downwards from root
+  return make_pair(index, value); // Return pair of index and value
+}
+
+// Function to push a new element into the heap
+void binaryHeap::push(size_t index, ull value) {
+  size_t place = values.size(); // Get new place for the element
+  places[index] = place; // Update place of the index
+  indexes[place] = index; // Update index of the place
+  values.push_back(value); // Add value to the heap
+  swapUp(place); // Adjust heap upwards from the new place
+}
+
+// Function to decrease the value of an element in the heap
+void binaryHeap::decrease(size_t index, ull value) {
+  size_t place = places[index]; // Get place of the index
+  values[place] = value; // Update value at the place
+  swapUp(place); // Adjust heap upwards from the place
+}
+```
+## 斐波那契堆
+### FibonacciHeap.hpp
+```cpp
+#include <cstddef>   // Provides definitions for size_t
+#include <climits>   // Provides constants for limits of integral types
+#include <map>       // Provides std::map for associative arrays
+#include <queue>     // Provides std::queue for breadth-first traversal
+#include <cmath>     // Provides mathematical functions
+
+#define ull unsigned long long   // Define ull as an alias for unsigned long long
+
+using namespace std;   // Using the standard namespace
+
+// Definition of the FibonacciHeap class
+class FibonacciHeap {
+private:
+  // Definition of a private nested struct FibonacciNode representing nodes in the heap
+  struct FibonacciNode {
+    pair<size_t, ull> key = make_pair(-1, ULLONG_MAX);   // Key stored in the node, initialized to a sentinel value
+    size_t degree = 0;                                   // Degree of the node (number of children)
+    FibonacciNode* left = this;                          // Pointer to the left sibling node
+    FibonacciNode* right = this;                         // Pointer to the right sibling node
+    FibonacciNode* parent = nullptr;                     // Pointer to the parent node
+    FibonacciNode* child = nullptr;                      // Pointer to the child node
+    bool marked = false;                                 // Flag indicating if the node has lost a child since the last time it was made the child of another node
+    // Constructor initializing the node
+    FibonacciNode() {
+      degree = 0;
+      left = right = this;
+      parent = child = nullptr;
+    }
+  };
+  
+  // Definition of a private nested struct FibonacciHead representing the head of the Fibonacci heap
+  struct FibonacciHead {
+    size_t keyNum = 0;             // Number of keys in the heap
+    size_t maxDegree = 0;          // Maximum degree among all nodes in the heap
+    FibonacciNode* min = nullptr;  // Pointer to the minimum node in the heap
+  };
+
+  FibonacciHead* head = nullptr;   // Pointer to the head of the Fibonacci heap
+  map<size_t, FibonacciNode*> nodes = {};   // Map to store nodes by their index
+
+  // Private helper method to remove a node from the heap
+  void removeNode(FibonacciNode* node);
+  // Private helper method to add a node to the list of children of another node
+  void addNode(FibonacciNode* node, FibonacciNode* root);
+  // Private helper method to erase the children of a given node
+  void eraseChildren(FibonacciNode* root);
+
+public:
+  FibonacciHeap();                // Constructor declaration
+  ~FibonacciHeap();               // Destructor declaration
+  pair<size_t, ull> popMin();     // Method to remove and return the minimum key from the heap
+  void push(size_t index, ull value);    // Method to insert a key-value pair into the heap
+  void decrease(size_t index, ull value);  // Method to decrease the value of a key in the heap
+};
+```
+### FibonacciHeap.cpp
+```cpp
+#include "FibonacciHeap.hpp"
+
+// Helper method to remove a node from the linked list of nodes
+void FibonacciHeap::removeNode(FibonacciNode* node) {
+  node->left->right = node->right;  // Adjust the pointers to skip the node being removed
+  node->right->left = node->left;
+}
+
+// Helper method to add a node to the list of children of another node
+void FibonacciHeap::addNode(FibonacciNode* node, FibonacciNode* root) {
+  node->left = root;            // Set the left pointer of the new node to the root
+  node->right = root->right;    // Set the right pointer of the new node to the right of the root
+  root->right->left = node;     // Adjust the left pointer of the root's right neighbor to point to the new node
+  root->right = node;           // Adjust the right pointer of the root to point to the new node
+}
+
+// Helper method to erase the children of a given node
+void FibonacciHeap::eraseChildren(FibonacciNode* root) {
+  for (size_t i = 0; i < root->degree; ++i) {
+    FibonacciNode* current = root->child;  // Get the child of the root
+    root->child = current->right;          // Update the child pointer of the root
+    current->parent = nullptr;             // Reset the parent pointer of the child
+    removeNode(current);                   // Remove the child from the linked list
+    if (head->min == nullptr) {            // If there is no minimum node in the heap
+      head->min = current;                 // Set the current child as the new minimum
+      current->left = current->right = current;  // Update the pointers to make it a circular list
+    } else {
+      addNode(current, head->min);         // Add the current child to the list of roots
+    }
+    current = current->right;               // Move to the next child
+  }
+  root->degree = 0;                        // Reset the degree of the root
+  root->child = nullptr;                   // Reset the child pointer of the root
+}
+
+// Constructor definition
+FibonacciHeap::FibonacciHeap() {
+  head = new FibonacciHead;   // Create a new FibonacciHead object and assign its address to head
+}
+
+// Destructor definition
+FibonacciHeap::~FibonacciHeap() {
+  if (head->min == nullptr) {  // If the heap is empty
+    delete head;               // Delete the head
+    return;                    // Exit the function
+  }
+  queue<FibonacciNode*> current;   // Create a queue to perform breadth-first traversal
+  current.push(head->min);         // Push the minimum node into the queue
+  while (!current.empty()) {       // Continue until the queue becomes empty
+    FibonacciNode* temp = current.front();  // Get the front node from the queue
+    current.pop();                          // Remove the front node from the queue
+    if (temp->right != temp) current.push(temp->right);  // Push the right sibling into the queue if it exists
+    if (temp->child != nullptr) current.push(temp->child);  // Push the child into the queue if it exists
+    removeNode(temp);  // Remove the current node from the linked list
+    delete temp;       // Delete the current node
+  }
+  delete head;  // Delete the head
+}
+
+// This part of the code defines the methods of the FibonacciHeap class: popMin, push, and decrease.
+// These methods perform operations on the Fibonacci heap data structure, including removing the minimum element,
+// inserting a new element, and decreasing the value of an existing element.
+
+// Method to remove and return the minimum key from the heap
+pair<size_t, ull> FibonacciHeap::popMin() {
+  if (head->min == nullptr) return make_pair(-1, ULLONG_MAX);  // If the heap is empty, return a sentinel value
+
+  FibonacciNode* minNode = head->min;  // Get the minimum node from the heap
+  eraseChildren(minNode);              // Erase the children of the minimum node
+  if (minNode->right == minNode) head->min = nullptr;  // If there is only one node in the heap, set min to nullptr
+  else {
+    FibonacciNode* minSibling = minNode->right;  // Get the right sibling of the minimum node
+    ull minValue = ULLONG_MAX;                   // Initialize the minimum value to the maximum possible value
+    while (minSibling != minNode) {              // Iterate over the siblings of the minimum node
+      if (minValue > minSibling->key.second) {  // Update the minimum value if a smaller value is found
+        minValue = minSibling->key.second;
+        head->min = minSibling;  // Update the min pointer to point to the new minimum node
+      }
+      minSibling = minSibling->right;  // Move to the next sibling
+    }
+  }
+  removeNode(minNode);       // Remove the minimum node from the linked list
+  --(head->keyNum);          // Decrease the number of keys in the heap
+  pair<size_t, ull> minKey = minNode->key;  // Get the key of the minimum node
+  nodes.erase(minKey.first);  // Erase the node from the map of nodes
+  delete minNode;             // Delete the minimum node
+
+  if (head->min != nullptr) {  // If the heap is not empty after removing the minimum node
+    FibonacciNode* minNode = head->min;  // Get the new minimum node
+    vector<FibonacciNode*> cons(size_t(log2(head->keyNum)) + 1, nullptr);  // Create an array to store nodes with the same degree
+    FibonacciNode* minSibling = minNode;  // Initialize the sibling pointer to the minimum node
+    FibonacciNode* next = minNode->right; // Get the next node in the circular list
+    do {
+      FibonacciNode* occupied = cons[minSibling->degree];  // Get the node with the same degree as the current node
+      while (occupied != nullptr) {   // Merge nodes with the same degree until no more nodes with the same degree are found
+        cons[minSibling->degree] = nullptr;  // Reset the entry in the array
+        if (occupied->key.second <= minSibling->key.second) {  // If the occupied node has a smaller key
+          ++(occupied->degree);  // Increase the degree of the occupied node
+          removeNode(minSibling);  // Remove the current node from the linked list
+          minSibling->parent = occupied;  // Set the parent pointer of the current node
+          if (occupied->child == nullptr) {  // If the occupied node has no children
+            occupied->child = minSibling;  // Make the current node its child
+            minSibling->left = minSibling->right = minSibling;  // Make the current node a circular list
+          } else {
+            addNode(minSibling, occupied->child);  // Add the current node to the list of children of the occupied node
+          }
+        } else {  // If the current node has a smaller key
+          ++(minSibling->degree);
+          removeNode(occupied);
+          occupied->parent = minSibling;
+          if (minSibling->child == nullptr) {
+            minSibling->child = occupied;
+            occupied->left = occupied->right = occupied;
+          } else
+            addNode(occupied, minSibling->child);
+        }
+      }
+      minSibling = next;
+      next = next->right;
+    } while (next != minNode);
+  }
+
+  // Return the minimum key
+  return minKey;
+}
+
+// Method to insert a key-value pair into the heap
+void FibonacciHeap::push(size_t index, ull value) {
+  // Create a new FibonacciNode with the given key-value pair
+  FibonacciNode* current = new FibonacciNode;
+  current->key = make_pair(index, value);
+
+  // Store the node in the map of nodes
+  nodes[index] = current;
+
+  // Insert the node into the heap
+  if (head->min == nullptr)
+    head->min = current; // If the heap is empty, set the current node as the minimum
+  else {
+    addNode(current, head->min); // Add the current node to the list of roots
+    // Update the minimum pointer if necessary
+    if (head->min->key.second > current->key.second)
+      head->min = current;
+  }
+
+  // Increment the number of keys in the heap
+  ++(head->keyNum);
+}
+
+// Method to decrease the value of a key in the heap
+void FibonacciHeap::decrease(size_t index, ull value) {
+  // Get the node associated with the given index
+  FibonacciNode* current = nodes[index];
+
+  // Update the value of the key
+  current->key.second = value;
+
+  // Cascade up to maintain heap order property
+  while (current->parent != nullptr && current->parent->key.second > current->key.second) {
+    // Swap the keys of the current node and its parent
+    pair<size_t, ull> temp = current->key;
+    current->key = current->parent->key;
+    current->parent->key = temp;
+
+    // Update the node in the map of nodes
+    nodes[current->key.first] = current;
+
+    // Move to the parent node
+    current = current->parent;
+
+    // Update the node in the map of nodes
+    nodes[current->key.first] = current;
+  }
+
+  // Update the minimum pointer if necessary
+  if (head->min->key.second > value)
+    head->min = current;
+}
+```
+## 测试代码
+### performaceTest.cpp
+```cpp
+#include "linkedList.hpp"
+#include "binaryHeap.hpp"
+#include "FibonacciHeap.hpp"
+
+#include <cstddef>        // For size_t
+#include <vector>         // For vector
+#include <cmath>          // For log2
+#include <chrono>         // For timing
+#include <random>         // For random number generation
+#include <iostream>       // For input/output operations
+#include <iomanip>        // For formatting output
+
+#define ull unsigned long long   // Define ull as unsigned long long
+
+using namespace std;
+
+// Function to initialize the distance matrix with random values
+void initial(vector<vector<ull>>& distance, size_t maxIndex) {
+    default_random_engine randomNumberGenerator(time(0));  // Seed random number generator with current time
+    uniform_int_distribution<ull> randomNumberDistribution(0, maxIndex);  // Define uniform distribution
+    distance.resize(maxIndex);  // Resize the distance matrix
+    for (size_t i = 0; i < maxIndex; ++i) {
+      distance[i].resize(maxIndex);  // Resize each row of the distance matrix
+      for (size_t j = 0; j < maxIndex; ++j)
+        distance[i][j] = randomNumberDistribution(randomNumberGenerator);  // Assign random values to each cell
+    }
+}
+
+// Function template to perform Dijkstra's algorithm using a specific priority queue implementation
+template <class Container>
+double dijkstra(vector<vector<ull>>& distance, size_t maxIndex) {
+  vector<bool> touched(maxIndex, false);  // Initialize vector to keep track of touched nodes
+  vector<ull> dis(maxIndex, ULLONG_MAX);  // Initialize vector to keep track of shortest distances
+  auto start = chrono::high_resolution_clock::now();  // Start measuring execution time
+  Container container;  // Create an instance of the priority queue container
+  container.push(0, 0);  // Push the source node with distance 0 into the priority queue
+  dis[0] = 0;  // Set distance of source node to 0
+  while (true) {
+    pair<size_t, ull> minNode = container.popMin();  // Extract the minimum distance node from the priority queue
+    if (minNode.first == -1) break;  // If there are no more nodes to process, break the loop
+    touched[minNode.first] = true;  // Mark the extracted node as touched
+    // Update distances to adjacent nodes
+    for (size_t i = 0; i < maxIndex; ++i) {
+      if (!touched[i] && dis[i] > dis[minNode.first] + distance[minNode.first][i]) {
+        // If the distance to node i through minNode is shorter than the current distance, update it
+        if (dis[i] == ULLONG_MAX) 
+          container.push(i, dis[minNode.first] + distance[minNode.first][i]);  // If i is not yet in the priority queue, push it
+        else 
+          container.decrease(i, dis[minNode.first] + distance[minNode.first][i]);  // If i is already in the priority queue, decrease its key
+        dis[i] = dis[minNode.first] + distance[minNode.first][i];  // Update the shortest distance to node i
+      }
+    }
+  }
+  auto end = chrono::high_resolution_clock::now();  // Stop measuring execution time
+  return chrono::duration_cast<chrono::duration<double>>(end-start).count();  // Return the elapsed time
+}
+
+// Main function
+int main(void) {
+  size_t n = 3072;  // Maximum index for testing
+  size_t count = 24;  // Number of iterations for averaging
+  for (size_t i = 1; i <= n; ++i) {
+    double averageLinkedList = 0;  // Initialize average time for linked list
+    double averageBinaryHeap = 0;   // Initialize average time for binary heap
+    double averageFibonacci  = 0;   // Initialize average time for Fibonacci heap
+    for (size_t j = 0; j < count; ++j) {
+      size_t maxIndex = i;  // Set the size of the graph
+      vector<vector<ull>> distance;  // Initialize distance matrix
+      initial(distance, maxIndex);  // Initialize distance matrix with random values
+
+      // Run Dijkstra's algorithm using linked list as priority queue
+      averageLinkedList += dijkstra<linkedList>(distance, maxIndex);
+      
+      // Run Dijkstra's algorithm using binary heap as priority queue
+      averageBinaryHeap += dijkstra<binaryHeap>(distance, maxIndex);
+      
+      // Run Dijkstra's algorithm using Fibonacci heap as priority queue
+      averageFibonacci  += dijkstra<FibonacciHeap>(distance, maxIndex);
+    }
+    // Calculate average times
+    averageLinkedList /= count;
+    averageBinaryHeap /= count;
+    averageFibonacci  /= count;
+    
+    // Output average times for each priority queue implementation
+    cout << setw(12) << averageLinkedList << '\t';  // Linked list average time
+    cout << setw(12) << averageBinaryHeap << '\t';  // Binary heap average time
+    cout << setw(12) << averageFibonacci << endl;   // Fibonacci heap average time
+  }
+}
+```
 
 ---
 
@@ -367,5 +904,6 @@ STRUCTURE FibonacciHeap:
 ---
 
 # 签字
+![](../resource/signature.png)
 
 ---
